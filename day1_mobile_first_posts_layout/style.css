@@ -1,0 +1,107 @@
+body {
+  margin: 2rem auto;
+  max-width: 1300px;
+  width: 95%;
+  font-family: 'Ubuntu';
+  color: #707070;
+}
+
+@media (min-width: 440px) {
+  body {
+    width: 80%;
+  }
+}
+
+/* define a tag color and hover effect at the begining */
+a {
+  color: #1792d2;
+}
+
+a:hover,
+a:focus {
+  color: #143774;
+}
+
+main.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: rgb(255, 239, 239); 
+}
+
+@media (min-width: 850px) {
+  main.container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.article-recent {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  width: auto;
+  padding: 1em;
+  margin: 1em;
+  box-sizing: border-box;
+  background-color: #fff;
+  
+  /* let continue reading always in the very bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.article-title {
+  font-family: 'Lora';
+  font-size: 1.2rem;
+  margin: 0;
+  color: #143774;
+}
+
+.article-info {
+  font-size: 0.875rem;
+  font-weight: lighter;
+}
+
+.article-body {
+  font-size: 0.9rem;
+
+  flex: 1 1 auto;
+}
+
+.article-read-more {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+@media(min-width: 850px) {
+  .article-recent {
+    width: calc(50% - 2em);
+  }
+}
+
+@media(min-width: 1200px) {
+  .article-recent {
+    width: calc(33.33% - 2em);
+  }
+  .article-title {
+    font-size: 1.5rem;
+  }
+  .article-body {
+    font-size: 1rem;
+  }
+  .article-read-more, .article-info {
+    font-size: 0.875rem;
+  }
+}
