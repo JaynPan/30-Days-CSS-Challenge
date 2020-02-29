@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  font-family: "Source Sans Pro";
+}
+
+a {
+  color: #2c2c2c;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: rgb(104, 50, 50);
+}
+
+header {
+  background-image: url("./images/banana.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.header-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2em;
+}
+
+.overlay-content {
+  display: flex;
+}
+.overlay.logo,
+.overlay.close-icon {
+  display: none;
+}
+
+.logo {
+  font-family: "Anton";
+  letter-spacing: 4px;
+  color: rgb(34, 55, 150);
+}
+.logo h2 {
+  margin-bottom: 0;
+}
+
+.nav-list,
+.social-media-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+.nav-list-item {
+  margin-right: 1em;
+}
+.nav-list-item:last-child {
+  margin-right: 2em;
+}
+.social-media-list-item {
+  margin-right: 0.5em;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    z-index: 10;
+    background: #fff;
+    background-image: url("./images/adrian-Xft-JdC-Jbc-unsplash-min.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .navigation.active {
+    width: 100%;
+  }
+
+  .overlay-content {
+    display: block;
+    position: relative;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+  }
+  .overlay.logo,
+  .overlay.close-icon {
+    display: block;
+  }
+  .overlay.close-icon {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .nav-list {
+    display: block;
+    margin-bottom: 2em;
+  }
+  .social-media-list {
+    justify-content: center;
+  }
+  .nav-list-item {
+    font-size: 1.2rem;
+    margin: 2em 0;
+  }
+  .nav-list-item:last-child {
+    margin: 2em 0;
+  }
+  .social-media-list-item {
+    font-size: 1rem;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media (max-height: 450px) and (max-width: 600px) {
+  .navigation {
+    overflow-y: auto;
+  }
+  .navigation a {
+    font-size: 0.8rem;
+  }
+  .overlay.close-icon {
+    font-size: 1.5rem;
+    top: 15px;
+    right: 35px;
+  }
+  .nav-list-item,
+  .nav-list-item:last-child {
+    margin: 0.5em 0;
+  }
+}
