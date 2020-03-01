@@ -22,6 +22,16 @@ header {
 .header-container {
   max-width: 1000px;
   margin: 0 auto;
+  background-color: none;
+}
+#navbar.sticky {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  transition: 0.3s;
 }
 
 nav {
