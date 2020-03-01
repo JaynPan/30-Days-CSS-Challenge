@@ -16,3 +16,9 @@
 |            Mobile Screen             |              iPad Screen               |          Laptop Screen           |
 | :----------------------------------: | :------------------------------------: | :------------------------------: |
 | ![day2-samll](images/day2-small.png) | ![day2-medium](images/day2-medium.png) | ![day2-big](images/day2-big.png) |
+
+---
+
+### DAY3 - Banner Below Enhanced Section
+
+![enhanced-section](images/day3-enhanced-section.png)

@@ -72,44 +72,19 @@
         </div>
       </div>
     </header>
-    <main>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis recusandae
-        nemo veritatis perferendis, maxime ut, id sit alias rem provident
-        placeat, temporibus modi laborum voluptate numquam ullam ducimus soluta
-        pariatur!
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis recusandae
-        nemo veritatis perferendis, maxime ut, id sit alias rem provident
-        placeat, temporibus modi laborum voluptate numquam ullam ducimus soluta
-        pariatur!
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis recusandae
-        nemo veritatis perferendis, maxime ut, id sit alias rem provident
-        placeat, temporibus modi laborum voluptate numquam ullam ducimus soluta
-        pariatur!
-      </p>
-    </main>
-  </body>
-  <script>
-    const navigation = document.querySelector(".navigation");
-    const nav = document.querySelector("#navbar");
+    <section class="banner-below-story">
+      <div class="story-container slider">
+        <img src="images/holding-flower.jpg" alt="story" />
+      </div>
 
-    function toggleNav() {
-      if (navigation.classList.contains("active")) {
-        navigation.classList.remove("active");
-      } else {
-        navigation.classList.add("active");
-      }
-    }
-    window.onscroll = function() {
-      if (window.pageYOffset > 0) {
-        nav.classList.add("sticky");
-      } else {
-        nav.classList.remove("sticky");
-      }
-    };
-  </script>
+      <div class="story-container info">
+        <h3>
+          A lifestyle blog <br />
+          to help you feel <br />inspired and uplifted.
+        </h3>
+        <a href="/" class="main-button">Blog</a>
+      </div>
+    </main>
+  </section>
+  <script src="./scripts/script.js"></script>
 </html>
