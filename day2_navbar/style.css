@@ -89,7 +89,9 @@ nav {
     top: 0;
     left: 0;
     height: 100%;
-    width: 0;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
     overflow: hidden;
     transition: 0.3s ease-in-out;
     z-index: 10;
@@ -99,7 +101,8 @@ nav {
     background-position: center;
   }
   .navigation.active {
-    width: 100%;
+    visibility: visible;
+    opacity: 1;
   }
 
   .overlay-content {
