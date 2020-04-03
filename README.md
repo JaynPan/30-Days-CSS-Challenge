@@ -22,3 +22,15 @@
 ### DAY3 - Banner Below Enhanced Section
 
 ![enhanced-section](images/day3-enhanced-section.png)
+
+---
+
+### DAY4 - Dark, Light, Solar Mode Boilplate
+
+|                Light Mode                 |                Dark Mode                |                Solar Mode                 |
+| :---------------------------------------: | :-------------------------------------: | :---------------------------------------: |
+| ![day2-light](images/day4-light-mode.png) | ![day2-dark](images/day4-dark-mode.png) | ![day2-solar](images/day4-solar-mode.png) |
+
+[Online Tutorial](https://www.youtube.com/watch?v=rXuHGLzSmSE)
+
+---
