@@ -130,8 +130,29 @@ li {
   background-color: var(--bg-solor);
 }
 
+/* logo animation */
+
+@keyframes color-rotate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
 .logo {
-  max-width: 300px;
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto;
+  border: 5px solid var(--border-color);
+  border-radius: 50%;
+  background-color: var(--bg-solor);
+}
+.logo:hover {
+  animation: color-rotate 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 header {
