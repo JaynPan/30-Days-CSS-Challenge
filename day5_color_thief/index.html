@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      transition: 0.3s ease-in-out;
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+    .pic-container {
+      max-width: 500px;
+      width: 100%;
+      background-color: #fff;
+      padding: 3rem;
+    }
+  </style>
+
+  <body>
+    <div class="pic-container">
+      <img id="pic" src="./images/pic1.jpg" alt="pic" />
+    </div>
+
+    <script>
+      let body = document.querySelector("body");
+      let image = document.querySelector("#pic");
+
+      window.onload = () => {
+        setBodyBgColor(getImageAverageRGB());
+      };
+
+      function getImageAverageRGB() {
+        let canvas = document.createElement("canvas");
+        let img = document.querySelector("#pic");
+
+        // Store image height to canvas
+        let height = (canvas.height =
+          img.naturalHeight || img.offsetHeight || img.height);
+        let width = (canvas.width =
+          img.naturalWidth || img.offsetWidth || img.width);
+
+        let contex = canvas.getContext("2d");
+
+        // Duplicate image and draw on canvas
+        contex.drawImage(img, 0, 0);
+
+        // Get the canvas pixel info
+        let pixelData = contex.getImageData(0, 0, width, height).data;
+        let count = 0;
+        let rgb = { r: 255, g: 255, b: 255 };
+        let interval = 100;
+
+        for (let i = 0; i < pixelData.length; i += interval * 4) {
+          count++;
+          // Sum all rgb pixel value
+          rgb.r += pixelData[i];
+          rgb.g += pixelData[i + 1];
+          rgb.b += pixelData[i + 2];
+        }
+
+        // Average rgb color of the image
+        rgb.r = Math.floor(rgb.r / count);
+        rgb.g = Math.floor(rgb.g / count);
+        rgb.b = Math.floor(rgb.b / count);
+
+        return rgb;
+      }
+
+      function setBodyBgColor(rgb) {
+        body.setAttribute(
+          "style",
+          `background-color: rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`
+        );
+      }
+    </script>
+  </body>
+</html>
