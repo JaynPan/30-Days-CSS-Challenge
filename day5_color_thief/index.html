@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+  <!--
+    This is a mini project that contain two features
+    1. Images Slider with fade-in-out effect
+    2. Changing background color according to image main color
+
+    Demo site: http://myjaypan.com/slideshow/
+  -->
+
   <style>
     body {
       display: flex;
@@ -10,34 +18,111 @@
       margin: 0;
       transition: 0.3s ease-in-out;
     }
-    img {
-      display: block;
-      width: 100%;
-    }
+
+    /* Picture styling */
     .pic-container {
       max-width: 500px;
       width: 100%;
       background-color: #fff;
       padding: 3rem;
     }
+    .pic {
+      display: none;
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    /* next and previous arrow styling */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50％);
+      margin: 0 5rem;
+      text-decoration: none;
+      color: #fff;
+      font-size: 2em;
+    }
+    .next {
+      right: 0;
+    }
+    .prev {
+      left: 0;
+    }
+
+    /* Use keyframes to animate display: none and block */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    @-webkit-keyframes fade {
+      from {
+        opacity: 0.4;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes fade {
+      from {
+        opacity: 0.4;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   </style>
 
   <body>
     <div class="pic-container">
-      <img id="pic" src="./images/pic1.jpg" alt="pic" />
+      <img class="pic fade" id="pic1" src="./images/pic1.jpg" alt="pic1" />
+      <img class="pic fade" id="pic2" src="./images/pic2.jpg" alt="pic2" />
+      <img class="pic fade" id="pic3" src="./images/pic3.jpg" alt="pic3" />
+      <img class="pic fade" id="pic4" src="./images/pic4.jpg" alt="pic4" />
+      <img class="pic fade" id="pic5" src="./images/pic5.jpg" alt="pic5" />
     </div>
 
+    <a href="#" class="next arrow" onClick="nextSlide()">&#10095;</a>
+    <a href="#" class="prev arrow" onClick="prevSlide()">&#10094;</a>
+
     <script>
-      let body = document.querySelector("body");
-      let image = document.querySelector("#pic");
+      let slideIndex = 1;
+      let slides = document.querySelectorAll(".pic");
 
-      window.onload = () => {
-        setBodyBgColor(getImageAverageRGB());
-      };
+      // Handle images show and hide
+      function showSlide(n) {
+        // Cycle to the first image if over last index
+        if (n > slides.length) slideIndex = 1;
+        // Cycle to the last image if index small than one
+        if (n < 1) slideIndex = slides.length;
 
-      function getImageAverageRGB() {
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+
+        // -1 since querySelectorAll is start from 0
+        slides[slideIndex - 1].style.display = "block";
+      }
+
+      function nextSlide() {
+        showSlide((slideIndex += 1));
+        setBodyBgColor(getImageAverageRGB(slideIndex));
+      }
+
+      function prevSlide() {
+        showSlide((slideIndex -= 1));
+        setBodyBgColor(getImageAverageRGB(slideIndex));
+      }
+
+      // Get rgb value according to image main color
+      function getImageAverageRGB(n) {
         let canvas = document.createElement("canvas");
-        let img = document.querySelector("#pic");
+
+        if (n > slides.length) slideIndex = 1;
+        if (n < 1) slideIndex = slides.length;
+
+        let img = document.querySelector(`#pic${slideIndex}`);
 
         // Store image height to canvas
         let height = (canvas.height =
@@ -50,11 +135,11 @@
         // Duplicate image and draw on canvas
         contex.drawImage(img, 0, 0);
 
-        // Get the canvas pixel info
+        // access the canvas image pixel info
         let pixelData = contex.getImageData(0, 0, width, height).data;
         let count = 0;
         let rgb = { r: 255, g: 255, b: 255 };
-        let interval = 100;
+        let interval = 100; // check the rgb value every 100 pixel
 
         for (let i = 0; i < pixelData.length; i += interval * 4) {
           count++;
@@ -64,7 +149,7 @@
           rgb.b += pixelData[i + 2];
         }
 
-        // Average rgb color of the image
+        // Caculate average rgb color of the image
         rgb.r = Math.floor(rgb.r / count);
         rgb.g = Math.floor(rgb.g / count);
         rgb.b = Math.floor(rgb.b / count);
@@ -72,12 +157,19 @@
         return rgb;
       }
 
+      let body = document.querySelector("body");
+
       function setBodyBgColor(rgb) {
         body.setAttribute(
           "style",
           `background-color: rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`
         );
       }
+
+      window.onload = () => {
+        showSlide(slideIndex);
+        setBodyBgColor(getImageAverageRGB(slideIndex));
+      };
     </script>
   </body>
 </html>
