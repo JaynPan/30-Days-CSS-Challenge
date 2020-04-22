@@ -34,3 +34,10 @@
 [Online Tutorial](https://www.youtube.com/watch?v=rXuHGLzSmSE)
 
 ---
+
+### DAY5 - Image Color Thief & Slide Show
+
+> the color thief detect the image average color and display on the background
+
+![color thief](/images/day5-screenshot.png)
+[Demo Link](http://myjaypan.com/slideshow/)
