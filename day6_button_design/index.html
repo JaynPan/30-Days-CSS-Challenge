@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./style.css" rel="stylesheet" />
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="toggle">Dark Mode</label>
+  <input type="checkbox" id="toggle" />
+  <section class="button-group light">
+    <button type="button" class="btn btn-1">READ ME</button>
+    <button type="button" class="btn btn-2">READ ME</button>
+  </section>
+</body>
+
+<script>
+  const checkbox = document.querySelector('#toggle');
+  const buttonGroup = document.querySelector('.button-group');
+
+  checkbox.addEventListener('change', (e) => {
+    console.log(e.target.value)
+    if(e.target.checked) {
+      buttonGroup.classList.replace('light', 'dark');
+    } else {
+      buttonGroup.classList.replace('dark', 'light');
+    }
+  })
+</script>
+
+</html>
