@@ -41,3 +41,13 @@
 
 ![color thief](/images/day5-screenshot.png)
 [Demo Link](http://myjaypan.com/slideshow/)
+
+---
+
+### DAY6 - Button Design with Dark Mode
+
+> A really simple button design with css variables, dark mode color use [monochromatic-colors-generator](https://pinetools.com/monochromatic-colors-generator) to generate colors
+
+|                Light Mode                 |                Dark Mode                |
+| :---------------------------------------: | :-------------------------------------: |
+| ![day6-light](images/day6-light.png) | ![day2-dark](images/day6-dark.png) |
