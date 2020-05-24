@@ -25,6 +25,8 @@
       width: 100%;
       background-color: #fff;
       padding: 3rem;
+      /* add this while using slide animation */
+      /* overflow: hidden;  */ 
     }
     .pic {
       display: none;
@@ -53,7 +55,8 @@
 
     /* Use keyframes to animate display: none and block */
     .fade {
-      animation-name: fade;
+      /* can change to slide  */
+      animation-name: fade; 
       animation-duration: 1.5s;
     }
     @-webkit-keyframes fade {
@@ -70,6 +73,24 @@
       }
       to {
         opacity: 1;
+      }
+    }
+
+    /* slide animation */
+    @-webkit-keyframes slide {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0%);
+      }
+    }
+    @keyframes slide {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0%);
       }
     }
   </style>
